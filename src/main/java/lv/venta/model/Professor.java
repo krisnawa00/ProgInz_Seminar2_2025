@@ -1,4 +1,7 @@
+
 package lv.venta.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -50,6 +53,7 @@ public class Professor {
 	
 	@OneToOne(mappedBy = "professor")//nodrosinām sasaisti JAVA līmenī - otras klases mainīgā nosaukums
 	@ToString.Exclude
+	@JsonIgnore
 	private Course course;
 	
 	

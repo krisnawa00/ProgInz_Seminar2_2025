@@ -11,7 +11,7 @@ public interface IProfessorRepo extends CrudRepository<Professor, Integer>{
 
    public abstract boolean existsByNameAndSurnameAndDegree(String name, String surname, Degree degree);
 
-
    public abstract ArrayList<Professor> findByDegree(Degree degree);
+
 
 }

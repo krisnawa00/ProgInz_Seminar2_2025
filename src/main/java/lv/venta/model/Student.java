@@ -1,6 +1,9 @@
+
 package lv.venta.model;
 
 import java.util.Collection;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -45,6 +48,7 @@ public class Student {
 	
 	@OneToMany(mappedBy = "student")
 	@ToString.Exclude
+	@JsonIgnore
 	private Collection<Grade> grades;
 	
 	

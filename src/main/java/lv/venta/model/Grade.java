@@ -20,7 +20,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-@Table(name = "GradeTable") //MYSQL - grade_table
+@Table(name = "grade_table") //MYSQL - grade_table
 @Entity
 public class Grade {
 	@Setter(value = AccessLevel.NONE)

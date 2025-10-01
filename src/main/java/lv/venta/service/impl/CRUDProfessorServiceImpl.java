@@ -50,18 +50,18 @@ public class CRUDProfessorServiceImpl implements ICRUDProfessorService{
 
 	@Override
 	public void deleteById(int id) throws Exception {
-	    //TODO atsaitēt profesoru no kursiem, kam tas ir piesaistīts
-	    Professor professorForDelete = retreiveById(id);
-	    ArrayList<Course> coursesForProfessor = courseRepo.findByProfessorPid(id);
-
-	    for(Course tempC: coursesForProfessor) {
-	        tempC.setProfessor(null); //noņemt to profesoru, kuru dzēšam ārā
-	        courseRepo.save(tempC);
-	    }
-
-	    profRepo.delete(professorForDelete);
+		//TODO atsaistēt profesoru no kursiem, kam tas ir piesaistīts
+		Professor professorForDelete = retreiveById(id);
+		ArrayList<Course> coursesForProfessor = courseRepo.findByProfessorPid(id);
+		
+		for(Course tempC: coursesForProfessor) {
+			tempC.setProfessor(null);//noņem to profesoru, kuru dzēšam ārā
+			courseRepo.save(tempC);
+		}
+		
+		profRepo.delete(professorForDelete);
+	
 	}
-
 
 	@Override
 	public void create(String name, String surname, Degree degree) throws Exception {
@@ -94,7 +94,5 @@ public class CRUDProfessorServiceImpl implements ICRUDProfessorService{
 		
 		
 	}
-	
-	
 
 }
