@@ -1,3 +1,4 @@
+
 package lv.venta.config;
 
 import org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration;

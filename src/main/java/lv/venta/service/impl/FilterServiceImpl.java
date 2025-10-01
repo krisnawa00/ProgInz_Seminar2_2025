@@ -1,3 +1,4 @@
+
 package lv.venta.service.impl;
 
 import java.util.ArrayList;

@@ -1,3 +1,4 @@
+
 package lv.venta.model.dto;
 
 import lombok.AllArgsConstructor;
