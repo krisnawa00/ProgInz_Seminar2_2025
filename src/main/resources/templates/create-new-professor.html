@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+	<p>Lūdzu ievadiet profesora datus</p>
+	<form action="#" th:action="@{/crud/professor/create}" th:object="${professor}" method="post" <table>
+		<tr>
+			<td>VĀRDS</td>
+			<td> <input type="text" th:field="*{name}" /> </td>
+			<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
+		</tr>
+
+		<tr>
+			<td>UZVĀRDS</td>
+			<td> <input type="text" th:field="*{surname}" /> </td>
+			<td th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></td>
+		</tr>
+
+
+		<tr>
+			<td>GRĀDS</td>
+			<td>
+				<select th:field="*{degree}">
+					<option th:each="degreeOption : ${T(lv.venta.model.enums.Degree).values()}"
+						th:value="${degreeOption}" th:text="${degreeOption}">
+					</option>
+				</select>
+			</td>
+		</tr>
+		
+		<tr><input type="submit" />  </tr>
+		</table>
+
+
+		
+
+
+
+	</form>
+
+
+
+</body>
+
+</html>

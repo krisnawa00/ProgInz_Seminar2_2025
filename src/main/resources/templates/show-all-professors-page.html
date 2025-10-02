@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	
+<body>
+	<p>Profesori: </p>
+	
+	<table>
+		<tr>
+			<td>ID</td>
+			<td>VĀRDS</td>
+			<td>UZVĀRDS</td>
+			<td>GRĀDS</td>
+		</tr>
+		
+		<tr th:each="tempP : ${professors}">
+			<td th:text="${tempP.getPid()}"  ></td>
+			<td th:text="${tempP.getName()}"  ></td>
+			<td th:text="${tempP.getSurname()}"  ></td>
+			<td th:text="${tempP.getDegree()}"  ></td>
+		</tr>
+		
+	</table>
+	
+	
+</body>
+
+</html>
