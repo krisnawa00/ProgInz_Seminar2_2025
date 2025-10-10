@@ -1,9 +1,6 @@
-
 package lv.venta.model;
 
 import java.util.Collection;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,7 +22,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-@Table(name = "student_table")//MYSQL - student_table
+@Table(name = "StudentTable")//MYSQL - student_table
 @Entity
 public class Student {
 	@Setter(value = AccessLevel.NONE)
@@ -48,7 +45,6 @@ public class Student {
 	
 	@OneToMany(mappedBy = "student")
 	@ToString.Exclude
-	@JsonIgnore
 	private Collection<Grade> grades;
 	
 	
@@ -56,8 +52,25 @@ public class Student {
 	
 	
 	
-	public Student(String name, String surname) {
-		setName(name);
-		setSurname(surname);
+	public Student( String name, String surname) {
+		if(name != null)
+		{
+			if(name.matches("[A-ZĒŪĪĻĶĢŠĀČŅ]{1}[a-zēūīļķģšāžčņ]+")) {
+				setName(name);
+			}
+		}
+		else {
+			name = "";
+		}
+		
+		if(surname != null) {
+			if(surname.matches("[A-ZĒŪĪĻĶĢŠĀČŅ]{1}[a-zēūīļķģšāžčņ]+")) {
+				setSurname(surname);
+			}
+		}
+		else
+		{
+			surname = "";
+		}
 	}
 }
